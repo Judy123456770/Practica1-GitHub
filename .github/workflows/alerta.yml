@@ -1,0 +1,25 @@
+
+name: Notificacion Hola Mundo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Hola Mundo
+        run: node hola.js
+
+      - name: Enviar notificacion a ntfy
+        run: |
+          curl -H "Title: Practica ITLA" \
+               -H "Content-Type: text/plain" \
+               -d "Hola Mundo: se ha subido codigo a la rama main de GitHub." \
+               https://ntfy.sh/devops-itla
