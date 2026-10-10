@@ -9,7 +9,6 @@ on:
 jobs:
   notificar:
     runs-on: ubuntu-latest
-
     steps:
       - name: Descargar codigo
         uses: actions/checkout@v4
